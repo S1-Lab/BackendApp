@@ -1,12 +1,13 @@
 package com.s1.lap.flutter.backend.entity;
 
-import org.springframework.data.annotation.CreatedDate;
+import com.s1.lap.flutter.backend.entity.util.BaseTime;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Post {
+public class Post extends BaseTime {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,15 +21,14 @@ public class Post {
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "is_sent")
+    @Column(name = "amount", nullable = false)
+    private Long amount;
+
+    @Column(name = "is_sent", nullable = false)
     private Boolean isSent;
 
-    @Column(name = "sent_at")
+    @Column(name = "sent_at", nullable = false)
     private LocalDateTime sentAt;
-
-    @Column(name = "create_at")
-    @CreatedDate
-    private LocalDateTime createAt;
 
     @Column(name = "memo")
     private String memo;
