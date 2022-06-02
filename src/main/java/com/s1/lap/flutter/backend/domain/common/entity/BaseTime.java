@@ -1,4 +1,4 @@
-package com.s1.lap.flutter.backend.entity.util;
+package com.s1.lap.flutter.backend.domain.common.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,6 +1,7 @@
-package com.s1.lap.flutter.backend.entity;
+package com.s1.lap.flutter.backend.domain.post.entity;
 
-import com.s1.lap.flutter.backend.entity.util.BaseTime;
+import com.s1.lap.flutter.backend.domain.user.entity.User;
+import com.s1.lap.flutter.backend.domain.common.entity.BaseTime;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

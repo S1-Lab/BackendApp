@@ -1,4 +1,6 @@
-package com.s1.lap.flutter.backend.entity;
+package com.s1.lap.flutter.backend.domain.relation.entity;
+
+import com.s1.lap.flutter.backend.domain.user.entity.User;
 
 import javax.persistence.*;
 

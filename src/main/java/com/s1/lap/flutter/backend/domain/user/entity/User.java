@@ -1,6 +1,9 @@
-package com.s1.lap.flutter.backend.entity;
+package com.s1.lap.flutter.backend.domain.user.entity;
 
-import com.s1.lap.flutter.backend.entity.util.BaseTime;
+import com.s1.lap.flutter.backend.domain.event.entity.Event;
+import com.s1.lap.flutter.backend.domain.post.entity.Post;
+import com.s1.lap.flutter.backend.domain.relation.entity.Relation;
+import com.s1.lap.flutter.backend.domain.common.entity.BaseTime;
 
 import javax.persistence.*;
 import java.util.ArrayList;
