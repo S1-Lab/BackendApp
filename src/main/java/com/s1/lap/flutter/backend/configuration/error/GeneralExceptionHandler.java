@@ -10,6 +10,7 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -33,7 +34,8 @@ public class GeneralExceptionHandler {
             IllegalArgumentException.class,
             IllegalStateException.class,
             ConstraintViolationException.class,
-            MethodArgumentNotValidException.class
+            MethodArgumentNotValidException.class,
+            MethodArgumentTypeMismatchException.class
     })
     public ResponseEntity<?> handleBadRequestException(Exception e) {
         log.debug("Bad request exception occurred: {}", e.getMessage(), e);
@@ -46,6 +48,11 @@ public class GeneralExceptionHandler {
             Optional<ConstraintViolation<?>> constraintViolation = ((ConstraintViolationException) e).getConstraintViolations().stream().findFirst();
             return constraintViolation.map(c -> newResponse(c.getMessageTemplate(), HttpStatus.BAD_REQUEST))
                     .orElseGet(() -> newResponse(e, HttpStatus.BAD_REQUEST));
+        } else if (e instanceof MethodArgumentTypeMismatchException) {
+            return newResponse(
+                    e.getCause().getCause().getMessage(),
+                    HttpStatus.BAD_REQUEST
+            );
         }
         return newResponse(e, HttpStatus.BAD_REQUEST);
     }
