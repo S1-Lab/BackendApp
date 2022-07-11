@@ -4,6 +4,7 @@ import com.s1.lap.flutter.backend.domain.event.entity.Event;
 import com.s1.lap.flutter.backend.domain.post.entity.Post;
 import com.s1.lap.flutter.backend.domain.relation.entity.Relation;
 import com.s1.lap.flutter.backend.domain.common.entity.BaseTime;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.Entity;
@@ -48,4 +49,17 @@ public class Member extends BaseTime {
     private List<Post> postList = new ArrayList<>();
 
     protected Member() { /*empty*/ }
+
+    @Builder
+    public Member(Long id, String email, String password, String name, String phoneNumber, String profileImageURL, List<Relation> relationList, List<Event> eventList, List<Post> postList) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.profileImageURL = profileImageURL;
+        this.relationList = relationList;
+        this.eventList = eventList;
+        this.postList = postList;
+    }
 }
