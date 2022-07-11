@@ -1,23 +1,11 @@
 package com.s1.lap.flutter.backend.domain.event.entity;
 
-import com.s1.lap.flutter.backend.domain.common.entity.BaseTime;
-import com.s1.lap.flutter.backend.domain.member.entity.Member;
-import com.s1.lap.flutter.backend.domain.post.entity.Post;
-import lombok.Builder;
-import lombok.Getter;
+import com.s1.lap.flutter.backend.domain.user.entity.User;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
-@Getter
-public class Event extends BaseTime {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,19 +15,8 @@ public class Event extends BaseTime {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
-
-    @OneToOne(mappedBy = "event")
-    private Post post;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     protected Event() { /*empty*/ }
-
-    @Builder
-    public Event(Long id, String name, Member member, Post post) {
-        this.id = id;
-        this.name = name;
-        this.member = member;
-        this.post = post;
-    }
 }
