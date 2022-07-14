@@ -1,23 +1,17 @@
 # Spring Boot Backend App
 ## 기능 명세서
-- [ ] 회원가입
-  - [ ] 카카오 연동
-- [ ] 로그인하기
-  - [ ] JWT 토큰 인증
-- [ ] 보냈음
-  - [ ] 추가하기
-  - [ ] 수정하기
-  - [ ] 삭제하기
-  - [ ] 보여주기(❓)
-- [ ] 받았음
-  - [ ] 추가하기
-  - [ ] 수정하기
-  - [ ] 삭제하기
-  - [ ] 보여주기(❓)
-* ~~생일 선물 보내기(카카오톡 선물하기 이용)~~
-    * ~~보낸 선물에 대해서 자동으로 어플에 기록하기~~
-- [ ] 필터 추가하기
-  - [ ] 날짜 별, 종류 별, 등 ..
-- [ ] 합계 페이지
-- [ ] 조회 페이지
-  - [ ] Same-Same 기능(❓)
+### 🧑🏻‍💻[201211306](https://github.com/201211306) 기능
+- [X] Post 생성(+) 버튼 클릭
+  - Input : member_id
+  - Output : event_list, relation_list 
+- [X] Post 생성
+  - Input : member_id, name, phone_number, event_id, relation_id, amount, memo, sent_at, is_sent 
+  - Output : member_id, name, phone_number, event_name, relation_name, amount, memo, sent_at, is_sent
+- [X] Event 생성
+  - Input : event_name, member_id
+  - Output : evnt_id, event_name
+- [X] Relation 생성
+  - Input : relation_name, member_id
+  - Output : relation_id, relation_name
+- [ ] Event 삭제
+- [ ] Relation 삭제
