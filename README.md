@@ -1,4 +1,8 @@
 # Spring Boot Backend App
+
+## 엔티티 연관 관계
+![image](https://user-images.githubusercontent.com/29060626/179397221-1fbd6d56-2605-4740-bf35-32db0578f738.png)
+
 ## 기능 명세서
 ### 🧑🏻‍💻[201211306](https://github.com/201211306) 기능
 - [X] Post 생성(+) 버튼 클릭
