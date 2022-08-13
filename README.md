@@ -3,8 +3,8 @@
 ### 🧑🏻‍💻[201211306](https://github.com/201211306) 기능
   - [X] Post 생성(+) 버튼 클릭 `{uri}/post/{id}`
     - 요청 :
+      - HTTP Method : `POST`
       ```markdown
-      HTTP Method = POST
       * Body 값 없이, 경로 파라미터 값을 입력하여 요청을 한다.
       ex) {uri}/post/2
       {id} 부분에 memberId(고유 식별 번호)를 입력하여 요청한다.
@@ -31,8 +31,8 @@
       ```
   - [X] Post 생성 `{uri}/post`
     - 요청 :
+      - HTTP Method : `POST`
       ```json
-      HTTP Method = POST
       {
         "name": "홍길동",
         "phoneNumber": "010-1234-1234",
@@ -64,8 +64,8 @@
       ```
   - [X] Event 생성 `{uri}/event`
     - 요청 :
+      - HTTP Method : `POST`
       ```json
-      HTTP Method = POST
       {
         "eventName": "행사2",
         "memberId": "2"
@@ -85,8 +85,8 @@
       ```
   - [X] Relation 생성 `{uri}/relation`
     - 요청 :
+      - HTTP Method : `POST`
       ```json
-      HTTP Method = POST
       {
         "relationName": "관계1",
         "memberId": "3"
@@ -106,8 +106,8 @@
       ```
   - [X] Event 삭제 `{uri}/event`
     - 요청
+      - HTTP Method : `DELETE`
       ```json
-      HTTP Method = DELETE
       {
         "eventName": "행1",
         "memberId": "2"
@@ -127,8 +127,8 @@
       ```
   - [X] Relation 삭제 `{uri}/relation`
     - 요청
+      - HTTP Method : `DELETE`
       ```json
-      HTTP Method = DELETE
       {
         "relationName": "관계1",
         "memberId": "4"
