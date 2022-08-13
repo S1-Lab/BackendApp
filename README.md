@@ -1,23 +1,148 @@
 # Spring Boot Backend App
 ## 기능 명세서
-- [ ] 회원가입
-  - [ ] 카카오 연동
-- [ ] 로그인하기
-  - [ ] JWT 토큰 인증
-- [ ] 보냈음
-  - [ ] 추가하기
-  - [ ] 수정하기
-  - [ ] 삭제하기
-  - [ ] 보여주기(❓)
-- [ ] 받았음
-  - [ ] 추가하기
-  - [ ] 수정하기
-  - [ ] 삭제하기
-  - [ ] 보여주기(❓)
-* ~~생일 선물 보내기(카카오톡 선물하기 이용)~~
-    * ~~보낸 선물에 대해서 자동으로 어플에 기록하기~~
-- [ ] 필터 추가하기
-  - [ ] 날짜 별, 종류 별, 등 ..
-- [ ] 합계 페이지
-- [ ] 조회 페이지
-  - [ ] Same-Same 기능(❓)
+### 🧑🏻‍💻[201211306](https://github.com/201211306) 기능
+  - [X] Post 생성(+) 버튼 클릭 `{uri}/post/{id}`
+    - 요청 :
+      - HTTP Method : `POST`
+      ```markdown
+      * Body 값 없이, 경로 파라미터 값을 입력하여 요청을 한다.
+      ex) {uri}/post/2
+      {id} 부분에 memberId(고유 식별 번호)를 입력하여 요청한다.
+      ```
+    - 응답 :
+      ```json
+      {
+        "success": true,
+        "response": {
+          "eventNames": [
+            "행사1",
+            "행사2",
+            "행사3"
+          ],
+          "relationNames": [
+            "관계1",
+            "관계2",
+            "관계3",
+            "관계4"
+          ]
+        },
+        "error": null
+      }
+      ```
+  - [X] Post 생성 `{uri}/post`
+    - 요청 :
+      - HTTP Method : `POST`
+      ```json
+      {
+        "name": "홍길동",
+        "phoneNumber": "010-1234-1234",
+        "isSent": "true",
+        "sentAt": "2022-05-10",
+        "memo": "메모메모메모",
+        "amount": "50000",
+        "memberId": "2",
+        "eventId": "1",
+        "relationId": "1"
+      }
+      ```
+    - 응답 :
+      ```json
+      {
+        "success": true,
+        "response": {
+          "name": "홍길동",
+          "phoneNumber": "010-1234-1234",
+          "amount": 50000,
+          "isSent": true,
+          "sentAt": "2022-05-10",
+          "memo": "메모메모메모",
+          "eventName": "행사1",
+          "relationName": "관계1"
+        },
+        "error": null
+      }
+      ```
+  - [X] Event 생성 `{uri}/event`
+    - 요청 :
+      - HTTP Method : `POST`
+      ```json
+      {
+        "eventName": "행사2",
+        "memberId": "2"
+      }
+      ```
+    - 응답 :
+      ```json
+      {
+        "success": true,
+        "response": {
+          "eventNames": [
+            "행사1", "행사2"
+          ]
+        },
+        "error": null
+      }
+      ```
+  - [X] Relation 생성 `{uri}/relation`
+    - 요청 :
+      - HTTP Method : `POST`
+      ```json
+      {
+        "relationName": "관계1",
+        "memberId": "3"
+      }
+      ```
+    - 응답 :
+      ```json
+      {
+        "success": true,
+        "response": {
+          "relationNames": [
+            "관계1"
+          ]
+        },
+        "error": null
+      }
+      ```
+  - [X] Event 삭제 `{uri}/event`
+    - 요청
+      - HTTP Method : `DELETE`
+      ```json
+      {
+        "eventName": "행1",
+        "memberId": "2"
+      }
+      ```
+    - 응답
+      ```json
+      {
+        "success": true,
+        "response": {
+          "eventNames": [
+            "행사2"
+          ]
+        },
+        "error": null
+      }
+      ```
+  - [X] Relation 삭제 `{uri}/relation`
+    - 요청
+      - HTTP Method : `DELETE`
+      ```json
+      {
+        "relationName": "관계1",
+        "memberId": "4"
+      }
+      ```
+    - 응답
+      ```json
+      {
+        "success": true,
+        "response": {
+          "relationNames": [
+          
+          ]
+        },
+        "error": null
+      }
+      ```
