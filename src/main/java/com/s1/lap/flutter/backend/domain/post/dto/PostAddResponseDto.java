@@ -1,34 +1,37 @@
 package com.s1.lap.flutter.backend.domain.post.dto;
 
 import com.s1.lap.flutter.backend.domain.event.entity.Event;
-import com.s1.lap.flutter.backend.domain.member.entity.Member;
 import com.s1.lap.flutter.backend.domain.relation.entity.Relation;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class PostAddResponseDto {
 
-    private List<Event> eventList;
-    private List<Relation> relationList;
+    private List<String> eventNames;
+    private List<String> relationNames;
 
     protected PostAddResponseDto() {
         /* empty */
     }
 
     @Builder
-    public PostAddResponseDto(final List<Event> eventList, final List<Relation> relationList) {
-        this.eventList = ((eventList == null) ? new ArrayList<>() : eventList);
-        this.relationList = ((relationList == null) ? new ArrayList<>() : relationList);
+    public PostAddResponseDto(final List<Event> events, final List<Relation> relations) {
+        this.eventNames = events.stream()
+                .map(Event::getName)
+                .collect(Collectors.toList());
+        this.relationNames = relations.stream()
+                .map(Relation::getName)
+                .collect(Collectors.toList());
     }
 
-    public static PostAddResponseDto of(final Member member) {
+    public static PostAddResponseDto of(final List<Event> events, final List<Relation> relations) {
         return PostAddResponseDto.builder()
-                .eventList(member.getEventList())
-                .relationList(member.getRelationList())
+                .events(events)
+                .relations(relations)
                 .build();
     }
 }

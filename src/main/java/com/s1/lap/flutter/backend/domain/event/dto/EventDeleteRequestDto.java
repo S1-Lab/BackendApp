@@ -1,4 +1,4 @@
-package com.s1.lap.flutter.backend.domain.relation.dto;
+package com.s1.lap.flutter.backend.domain.event.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,23 +9,23 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
-public class RelationCreateRequestDto {
+public class EventDeleteRequestDto {
 
-    @NotBlank(message = "관계명을 입력해주세요.")
-    private String relationName;
+    @NotBlank(message = "행사명을 입력해주세요.")
+    private String eventName;
 
     @Min(value = 1L, message = "제한된 범위 밖입니다.")
     @Max(value = Long.MAX_VALUE, message = "제한된 범위 밖입니다.")
     @NotNull(message = "회원 번호를 입력해주세요.")
     private Long memberId;
 
-    protected RelationCreateRequestDto() {
+    protected EventDeleteRequestDto() {
         /* empty */
     }
 
     @Builder
-    public RelationCreateRequestDto(final String relationName, final Long memberId) {
-        this.relationName = relationName;
+    public EventDeleteRequestDto(final String eventName, final Long memberId) {
+        this.eventName = eventName;
         this.memberId = memberId;
     }
 }
