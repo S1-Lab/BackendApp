@@ -1,6 +1,5 @@
 package com.s1.lap.flutter.backend.domain.relation.dto;
 
-import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.Max;
@@ -9,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
-public class RelationCreateRequestDto {
+public class RelationDeleteRequestDto {
 
     @NotBlank(message = "관계명을 입력해주세요.")
     private String relationName;
@@ -19,12 +18,11 @@ public class RelationCreateRequestDto {
     @NotNull(message = "회원 번호를 입력해주세요.")
     private Long memberId;
 
-    protected RelationCreateRequestDto() {
+    protected RelationDeleteRequestDto() {
         /* empty */
     }
 
-    @Builder
-    public RelationCreateRequestDto(final String relationName, final Long memberId) {
+    public RelationDeleteRequestDto(final String relationName, final Long memberId) {
         this.relationName = relationName;
         this.memberId = memberId;
     }

@@ -3,7 +3,7 @@ package com.s1.lap.flutter.backend.domain.post.dto;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 public class PostCreateRequestDto {
@@ -12,7 +12,7 @@ public class PostCreateRequestDto {
     private String phoneNumber;
     private Long amount;
     private Boolean isSent;
-    private LocalDateTime sentAt;
+    private LocalDate sentAt;
     private String memo;
     private Long memberId;
     private Long eventId;
@@ -23,7 +23,7 @@ public class PostCreateRequestDto {
     }
 
     @Builder
-    public PostCreateRequestDto(String name, String phoneNumber, Long amount, Boolean isSent, LocalDateTime sentAt, String memo, Long memberId, Long eventId, Long relationId) {
+    public PostCreateRequestDto(String name, String phoneNumber, Long amount, Boolean isSent, LocalDate sentAt, String memo, Long memberId, Long eventId, Long relationId) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.amount = amount;

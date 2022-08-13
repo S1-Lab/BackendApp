@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService {
 
@@ -48,5 +50,11 @@ public class PostServiceImpl implements PostService {
                 .relation(relation)
                 .build();
         return postRepository.save(post);
+    }
+
+    @Override
+    @Transactional
+    public List<Post> findByMemberId(final Long memberId) {
+        return postRepository.findByMemberId(memberId);
     }
 }

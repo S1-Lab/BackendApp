@@ -8,23 +8,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-public class RelationCreateResponseDto {
+public class RelationDeleteResponseDto {
 
     private List<String> relationNames;
 
-    protected RelationCreateResponseDto() {
+    protected RelationDeleteResponseDto() {
         /* empty */
     }
 
     @Builder
-    public RelationCreateResponseDto(final List<Relation> relations) {
+    public RelationDeleteResponseDto(final List<Relation> relations) {
         this.relationNames = relations.stream()
                 .map(Relation::getName)
                 .collect(Collectors.toList());
     }
 
-    public static RelationCreateResponseDto of(final List<Relation> relations) {
-        return RelationCreateResponseDto.builder()
+    public static RelationDeleteResponseDto of(final List<Relation> relations) {
+        return RelationDeleteResponseDto.builder()
                 .relations(relations)
                 .build();
     }
