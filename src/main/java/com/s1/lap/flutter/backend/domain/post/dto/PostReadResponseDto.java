@@ -24,7 +24,7 @@ public class PostReadResponseDto {
 
     public static PostReadResponseDto of(final Member member) {
         return PostReadResponseDto.builder()
-                .postList(member.getPostList())
+                .postList(member.getPosts())
                 .build();
     }
 }

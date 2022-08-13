@@ -8,23 +8,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-public class EventCreateResponseDto {
+public class EventDeleteResponseDto {
 
     private List<String> eventNames;
 
-    protected EventCreateResponseDto() {
+    protected EventDeleteResponseDto() {
         /* empty */
     }
 
     @Builder
-    public EventCreateResponseDto(final List<Event> events) {
+    public EventDeleteResponseDto(final List<Event> events) {
         this.eventNames = events.stream()
                 .map(Event::getName)
                 .collect(Collectors.toList());
     }
 
-    public static EventCreateResponseDto of(final List<Event> events) {
-        return EventCreateResponseDto.builder()
+    public static EventDeleteResponseDto of(final List<Event> events) {
+        return EventDeleteResponseDto.builder()
                 .events(events)
                 .build();
     }
